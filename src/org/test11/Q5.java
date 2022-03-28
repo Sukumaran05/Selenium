@@ -1,0 +1,36 @@
+package org.test11;
+
+import java.awt.AWTException;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Q5 {
+
+	public static void main(String[] args)throws InterruptedException, AWTException {
+		
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\acer\\eclipse-workspace\\Selenium\\drivers\\chromedriver.exe");
+	
+	WebDriver driver = new ChromeDriver();
+	
+	driver.get("https://www.facebook.com/");
+	
+	driver.findElement(By.xpath("//a[text()='Create New Account']")).click();
+	Thread.sleep(5000);
+	List<WebElement> day = driver.findElements(By.xpath("//select[@title='Day']"));
+	
+	for (int i = 0; i < day.size(); i++) {
+		if (i%2==0) {
+			WebElement allday = day.get(i);
+			System.out.println(allday.getText());	
+		}
+		
+	}
+	}
+
+	
+	
+}
